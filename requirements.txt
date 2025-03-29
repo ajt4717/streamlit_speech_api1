@@ -1,4 +1,4 @@
 streamlit
 pyttsx3
 python-docx==1.1.2
-speake3
+gTTS

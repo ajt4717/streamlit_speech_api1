@@ -1,6 +1,8 @@
 import streamlit as st
 import docx
 import pyttsx3
+import gtts
+import os
 
 def main():
     # Initialize the converter
@@ -33,8 +35,14 @@ def main():
             #print(doc_text)
 
             # Convert text to speech
-            engine.say(doc_text)
-            engine.runAndWait()
+            #engine.say(doc_text)
+            #engine.runAndWait()
+
+            language = 'en'
+            myobj = gtts.gTTS(text=doc_text, lang=language, slow=False)
+            myobj.save("generated_speech_to_text.mp3")
+            # play the stored audio
+            os.system("generated_speech_to_text.mp3")
 
         except Exception as e:
             print(e)
