@@ -1,4 +1,4 @@
+Python=3.9.13
 streamlit
 pyttsx3
 python-docx
-docx
