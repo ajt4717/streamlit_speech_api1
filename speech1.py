@@ -5,6 +5,8 @@ import pyttsx3
 def main():
     # Initialize the converter
     engine = pyttsx3.init()
+    newVoiceRate = 145
+    engine.setProperty('rate',newVoiceRate)
 
     st.title("This is the title")
     st.sidebar.title("This is sidebar")
