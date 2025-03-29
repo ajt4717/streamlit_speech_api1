@@ -34,15 +34,34 @@ def main():
             #print doc contents
             #print(doc_text)
 
-            # Convert text to speech
+
+            # Convert text to speech using pyttsx3
             #engine.say(doc_text)
             #engine.runAndWait()
 
+
+            # Convert text to speech using gtts
             language = 'en'
             myobj = gtts.gTTS(text=doc_text, lang=language, slow=False)
             myobj.save("generated_speech_to_text.mp3")
-            # play the stored audio
-            os.system("generated_speech_to_text.mp3")
+
+            # play the stored audio in local system
+            # os.system("generated_speech_to_text.mp3")
+
+            # play the stored audio in streamlit
+            audio_file = open('generated_speech_to_text.mp3', 'rb')
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format='audio/ogg',start_time=0)
+
+
+            # # Convert text to speech using pygame
+            # language = 'en'
+            # myobj = gtts.gTTS(text=doc_text, lang=language, slow=False)
+            # myobj.save("generated_speech_to_text.mp3")
+            # # play the stored audio
+            # os.system("generated_speech_to_text.mp3")
+
+            st.audio(doc_text)
 
         except Exception as e:
             print(e)
